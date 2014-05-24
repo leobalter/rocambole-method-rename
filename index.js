@@ -42,7 +42,7 @@ function filterMethods( contents, oldName, newName ) {
 
 		while ( myNode.parent ) {
 			myNode = myNode.parent;
-			if ( !isScopedExpression( name, myNode.parent ) ) {
+			if ( !isScopedExpression( name, myNode ) ) {
 				node.expression.callee.name = newName;
 				node.startToken.value = newName;
 			}
