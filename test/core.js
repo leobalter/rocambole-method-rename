@@ -10,8 +10,6 @@ exports.example_1 = function( t ) {
 	actual = rmr( fileIn, "bola", "replaced" );
 	expected = fs.readFileSync( fileOut ).toString();
 
-	console.log( actual );
-
 	t.equal( actual, expected );
 
 	t.done();
