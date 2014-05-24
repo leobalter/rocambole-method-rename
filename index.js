@@ -5,7 +5,11 @@ var path = require( "path" ),
 	rocambole = require( "rocambole" ),
 	nodeUpdate = ( "rocambole-node-update" );
 
-module.export = filterMethods;
+module.exports = function( file, oldName, newName ) {
+	var contents = getFileContents( file );
+
+	return filterMethods( contents, oldName, newName );
+};
 
 function getFileContents( file ) {
 	try {
@@ -20,35 +24,32 @@ function getFileContents( file ) {
 };
 
 function filterMethods( contents, oldName, newName ) {
-	var i, l, x, 
-		parsed, nodes,
-		name, myNode,
-		gotcha;
-
-	nodes = [];
+	var parsed;
 
 	parsed = rocambole.moonwalk( contents, function( node ) {
+		var name, myNode;
+
 		if ( node.type !== "ExpressionStatement" ) {
 			return;
 		}
 
-		nodes.push( node );
+		name = node.expression.callee.toString();
 
-	}).toString();
-
-	for ( i = 0, l = nodes.length; i < l; i++ ) {
-		myNode = nodes[ i ];
-		gotcha = false;
-
-		name = myNode.expression.callee.toString();
-
-		while ( !gotcha && myNode.parent ) {
-			myNode = myNode.parent;
-			gotcha = isScopedExpression( name, myNode.parent );
+		if ( name !== oldName ) {
+			return;
 		}
 
-		console.log( name, gotcha );
-	}
+		myNode = node;
+
+		while ( myNode.parent ) {
+			myNode = myNode.parent;
+			if ( isScopedExpression( name, myNode.parent ) ) {
+				node.expression.callee.name = newName;
+				nodeUpdate( node, newName );
+			};
+		}
+
+	}).toString();
 
 	return parsed;
 }
@@ -73,5 +74,3 @@ function isScopedExpression( name, myNode ) {
 
 	return inScope;
 }
-
-filterMethods( getFileContents( "test.js" ), 'start' );

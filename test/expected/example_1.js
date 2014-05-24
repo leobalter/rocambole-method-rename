@@ -4,10 +4,13 @@ function xyz() {
 		var verdadeiro;
 
 	 	function bar() {
+	 		var bola;
+
 			bola();
 		}
 
 		function foo() {
+			replaced();
 
 			if ( true ) {
 				start();
