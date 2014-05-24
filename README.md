@@ -1,5 +1,9 @@
 # Rocambole Method Rename
 
+A tool to rename method names in JS files through [Rocambole](https://github.com/millermedeiros/rocambole).
+
+[![Build Status](https://travis-ci.org/leobalter/rocambole-method-rename.svg)](https://travis-ci.org/leobalter/rocambole-method-rename)
+
 ## Instalation:
 
 ```sh
