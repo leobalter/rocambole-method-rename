@@ -1,23 +1,22 @@
 {
-  "name": "rocambole-method-rename",
-  "version": "0.0.0",
-  "description": "Tool to rename method names in JS files through Rocambole",
-  "main": "index.js",
-  "scripts": {
-    "test": "npm test"
-  },
-  "keywords": [
-    "rocambole"
-  ],
-  "author": "Leo Balter",
-  "license": "MIT",
-  "dependencies": {
-    "rocambole": "^0.3.3",
-    "rocambole-node-update": "^0.1.0"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-nodeunit": "^0.4.0"
-  }
+	"name": "rocambole-method-rename",
+	"version": "0.0.0",
+	"description": "Tool to rename method names in JS files through Rocambole",
+	"main": "index.js",
+	"scripts": {
+		"test": "grunt"
+	},
+	"keywords": [
+		"rocambole"
+	],
+	"author": "Leo Balter",
+	"license": "MIT",
+	"dependencies": {
+		"rocambole": "^0.3.3"
+	},
+	"devDependencies": {
+		"grunt": "^0.4.5",
+		"grunt-contrib-jshint": "^0.10.0",
+		"grunt-contrib-nodeunit": "^0.4.0"
+	}
 }
