@@ -7,9 +7,10 @@ exports.example_1 = function( t ) {
 		fileOut = path.join( __dirname, 'expected/example_1.js' ),
 		actual, expected;
 
+	actual = rmr( fileIn, "bola", "replaced" );
 	expected = fs.readFileSync( fileOut ).toString();
 
-	actual = rmr( fileIn, "bola", "replaced" );
+	console.log( actual );
 
 	t.equal( actual, expected );
 
@@ -21,9 +22,8 @@ exports.example_2 = function( t ) {
 		fileOut = path.join( __dirname, 'expected/example_2.js' ),
 		actual, expected;
 
-	expected = fs.readFileSync( fileOut ).toString();
-
 	actual = rmr( fileIn, "bola", "replaced" );
+	expected = fs.readFileSync( fileOut ).toString();
 
 	t.equal( actual, expected );
 
