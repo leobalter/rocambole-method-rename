@@ -59,9 +59,9 @@ function isScopedExpression( name, myNode ) {
 		rocambole.moonwalk( myNode, function( node ) {
 			if ( node.type === "VariableDeclaration" ) {
 				for ( var i in node.declarations ) {
-				 	if ( name === node.declarations[ i ].id.name ) {
-				 		inScope = true;
-				 	}
+					if ( name === node.declarations[ i ].id.name ) {
+						inScope = true;
+					}
 				}
 			}
 		});
