@@ -3,8 +3,8 @@ var path = require( "path" ),
 	rmr = require( "../index.js" );
 
 exports.example_1 = function( t ) {
-	var fileIn = path.join( __dirname, 'source/example_1.js' ),
-		fileOut = path.join( __dirname, 'expected/example_1.js' ),
+	var fileIn = path.join( __dirname, "source/example_1.js" ),
+		fileOut = path.join( __dirname, "expected/example_1.js" ),
 		actual, expected;
 
 	actual = rmr( fileIn, "bola", "replaced" );
@@ -18,8 +18,8 @@ exports.example_1 = function( t ) {
 };
 
 exports.example_2 = function( t ) {
-	var fileIn = path.join( __dirname, 'source/example_2.js' ),
-		fileOut = path.join( __dirname, 'expected/example_2.js' ),
+	var fileIn = path.join( __dirname, "source/example_2.js" ),
+		fileOut = path.join( __dirname, "expected/example_2.js" ),
 		actual, expected;
 
 	actual = rmr( fileIn, "bola", "replaced" );

@@ -2,8 +2,7 @@
 
 var path = require( "path" ),
 	fs = require( "fs" ),
-	rocambole = require( "rocambole" ),
-	nodeUpdate = ( "rocambole-node-update" );
+	rocambole = require( "rocambole" );
 
 module.exports = function( file, oldName, newName ) {
 	var contents = getFileContents( file );
@@ -21,7 +20,7 @@ function getFileContents( file ) {
 		);
 		process.exit( 2 );
 	}
-};
+}
 
 function filterMethods( contents, oldName, newName ) {
 	var parsed;
@@ -56,8 +55,7 @@ function filterMethods( contents, oldName, newName ) {
 function isScopedExpression( name, myNode ) {
 	var rocambole = require( "rocambole" );
 
-	var inScope = false,
-		parents = [];
+	var inScope = false;
 
 	try {
 		rocambole.moonwalk( myNode, function( node ) {

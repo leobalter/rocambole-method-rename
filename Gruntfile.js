@@ -6,10 +6,20 @@ module.exports = function( grunt ) {
 			all: [
 				"test/core.js"
 			]
+		},
+		jshint: {
+			options: {
+				jshintrc: ".jshintrc"
+			},
+			all: [
+				"index.js",
+				"test/*.js"
+			]
 		}
 	});
 
 	grunt.loadNpmTasks( "grunt-contrib-nodeunit" );
+	grunt.loadNpmTasks( "grunt-contrib-jshint" );
 
-	grunt.registerTask( "default", [ "nodeunit" ] );
+	grunt.registerTask( "default", [ "jshint", "nodeunit" ] );
 };
