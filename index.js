@@ -53,8 +53,6 @@ function filterMethods( contents, oldName, newName ) {
 }
 
 function isScopedExpression( name, myNode ) {
-	var rocambole = require( "rocambole" );
-
 	var inScope = false;
 
 	try {
