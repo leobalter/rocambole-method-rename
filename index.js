@@ -1,28 +1,8 @@
 "use strict";
 
-var path = require( "path" ),
-	fs = require( "fs" ),
-	rocambole = require( "rocambole" );
+var rocambole = require( "rocambole" );
 
-module.exports = function( file, oldName, newName ) {
-	var contents = getFileContents( file );
-
-	return filterMethods( contents, oldName, newName );
-};
-
-function getFileContents( file ) {
-	try {
-		file = path.resolve( __dirname, file );
-		return fs.readFileSync( file ).toString();
-	} catch ( ex ) {
-		console.error(
-			"Can't read source file: '" + file + "'\nException: " + ex.message
-		);
-		process.exit( 2 );
-	}
-}
-
-function filterMethods( contents, oldName, newName ) {
+module.exports = function( contents, oldName, newName ) {
 	var parsed;
 
 	parsed = rocambole.moonwalk( contents, function( node ) {
@@ -50,7 +30,7 @@ function filterMethods( contents, oldName, newName ) {
 	}).toString();
 
 	return parsed;
-}
+};
 
 function isScopedExpression( name, myNode ) {
 	var inScope = false;

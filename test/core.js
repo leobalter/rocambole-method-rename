@@ -1,13 +1,14 @@
 var path = require( "path" ),
 	fs = require( "fs" ),
-	rmr = require( "../index.js" );
+	rmr = require( "../index.js" ),
+	fileContents = require( "../lib/files.js" ).fileContents;
 
 exports.example_1 = function( t ) {
-	var fileIn = path.join( __dirname, "source/example_1.js" ),
-		fileOut = path.join( __dirname, "expected/example_1.js" ),
+	var fileIn = path.resolve( __dirname, "source/example_1.js" ),
+		fileOut = path.resolve( __dirname, "expected/example_1.js" ),
 		actual, expected;
 
-	actual = rmr( fileIn, "bola", "replaced" );
+	actual = rmr( fileContents( fileIn ), "bola", "replaced" );
 	expected = fs.readFileSync( fileOut ).toString();
 
 	t.equal( actual, expected );
@@ -16,11 +17,11 @@ exports.example_1 = function( t ) {
 };
 
 exports.example_2 = function( t ) {
-	var fileIn = path.join( __dirname, "source/example_2.js" ),
-		fileOut = path.join( __dirname, "expected/example_2.js" ),
+	var fileIn = path.resolve( __dirname, "source/example_2.js" ),
+		fileOut = path.resolve( __dirname, "expected/example_2.js" ),
 		actual, expected;
 
-	actual = rmr( fileIn, "bola", "replaced" );
+	actual = rmr( fileContents( fileIn ), "bola", "replaced" );
 	expected = fs.readFileSync( fileOut ).toString();
 
 	t.equal( actual, expected );
