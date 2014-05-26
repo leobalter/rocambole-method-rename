@@ -13,7 +13,11 @@ module.exports = function( contents, oldName, newName ) {
 			return;
 		}
 
-		name = node.expression.callee.toString();
+		try {
+			name = node.expression.callee.toString();
+		} catch ( e ) {
+			return;
+		}
 
 		if ( name !== oldName ) {
 			return;
