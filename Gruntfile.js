@@ -4,7 +4,7 @@ module.exports = function( grunt ) {
 	grunt.initConfig({
 		nodeunit: {
 			all: [
-				"test/core.js"
+				"test/*.js"
 			]
 		},
 		jshint: {

@@ -1,6 +1,7 @@
 "use strict";
 
-var rocambole = require( "rocambole" );
+var rocambole = require( "rocambole" ),
+	files = require( "./lib/files.js" );
 
 module.exports = function( contents, oldName, newName ) {
 	var parsed;
@@ -49,3 +50,7 @@ function isScopedExpression( name, myNode ) {
 
 	return inScope;
 }
+
+// Utils
+module.exports.jsFiles = files.jsFiles;
+module.exports.fileContents = files.fileContents;
