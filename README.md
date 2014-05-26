@@ -23,11 +23,11 @@ require( "rocambole-method-rename" )( src, "oldMethodName", "newMethodName" );
 (function() {
 	var path = require( "path" ),
 		rmr = require( "rocambole-method-rename" ),
-		src = path.join( __dirname, "source.js" ),
+		src = path.join( __dirname, "source.js" ).toString(),
 		result;
 
-	// Sends a file path
-	// Returns a string
+	// Sends JS Contents
+	// Returns a string with the replaced content
 	result = rmr( src, "oldMethodName", "newMethodName" );
 })();
 ```
