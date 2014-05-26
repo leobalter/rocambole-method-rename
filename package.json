@@ -1,6 +1,6 @@
 {
 	"name": "rocambole-method-rename",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "Tool to rename method names in JS files through Rocambole",
 	"main": "index.js",
 	"scripts": {
